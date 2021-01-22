@@ -31,4 +31,16 @@ Public Class CustomAppsList
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Close()
     End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        If MessageBox.Show("Voulez-vous vraiment supprimer cette application ?", "Supprimer", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = DialogResult.Yes Then
+            Dim list As List(Of Utils.Collections.ClientsCollection) = JsonConvert.DeserializeObject(Of List(Of Utils.Collections.ClientsCollection))(FileIO.FileSystem.ReadAllText(".\Clients.json"))
+
+            list.RemoveAt(ListView1.SelectedItems(0).Index)
+
+            FileIO.FileSystem.WriteAllText(".\Clients.json", JsonConvert.SerializeObject(list, Formatting.Indented), False)
+
+            Refresh()
+        End If
+    End Sub
 End Class

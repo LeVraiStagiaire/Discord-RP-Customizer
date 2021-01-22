@@ -25,12 +25,12 @@ Partial Class CustomAppsList
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CustomAppsList))
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.ListView1 = New System.Windows.Forms.ListView()
+        Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
-        Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -68,6 +68,11 @@ Partial Class CustomAppsList
         Me.ListView1.TabIndex = 0
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader1
+        '
+        Me.ColumnHeader1.Text = "Nom"
+        Me.ColumnHeader1.Width = 277
         '
         'FlowLayoutPanel1
         '
@@ -132,11 +137,6 @@ Partial Class CustomAppsList
         Me.Button4.TabIndex = 3
         Me.Button4.Text = "&Supprimer"
         Me.Button4.UseVisualStyleBackColor = False
-        '
-        'ColumnHeader1
-        '
-        Me.ColumnHeader1.Text = "Nom"
-        Me.ColumnHeader1.Width = 277
         '
         'CustomAppsList
         '
