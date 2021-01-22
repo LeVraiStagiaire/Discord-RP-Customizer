@@ -110,7 +110,7 @@ Public Class Form1
         If RP.IsInitialized Then
             Threading.Thread.Sleep(1000)
             For i = 0 To 10
-                If IsNothing(RP.CurrentUser.Username.ToString()) Then
+                If IsNothing(RP.CurrentUser) Then
                     Threading.Thread.Sleep(500)
                 Else
                     Label1.Text = RP.CurrentUser.Username.ToString() + "#" + RP.CurrentUser.Discriminator.ToString()
@@ -136,5 +136,9 @@ Public Class Form1
 
     Private Sub MisesÀJoursToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MisesÀJoursToolStripMenuItem.Click
         Process.Start("http://aorracer.com/2Ao6")
+    End Sub
+
+    Private Sub PremiumToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PremiumToolStripMenuItem.Click
+
     End Sub
 End Class
