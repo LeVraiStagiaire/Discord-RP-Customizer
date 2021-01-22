@@ -138,7 +138,11 @@ Public Class Form1
         Process.Start("http://aorracer.com/2Ao6")
     End Sub
 
-    Private Sub PremiumToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PremiumToolStripMenuItem.Click
+    Private Sub AProposToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AProposToolStripMenuItem.Click
+        About.ShowDialog()
+    End Sub
 
+    Private Sub PremiumToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PremiumToolStripMenuItem.Click
+        Process.Start("https://www.paypal.com/donate?hosted_button_id=ZXWXJHQFH25NQ")
     End Sub
 End Class

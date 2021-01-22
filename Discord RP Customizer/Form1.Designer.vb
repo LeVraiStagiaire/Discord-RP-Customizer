@@ -37,6 +37,12 @@ Partial Class Form1
         Me.EnleverToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripSeparator()
         Me.ApplicationPersonnaliséeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SiteWebToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MisesÀJoursToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem6 = New System.Windows.Forms.ToolStripSeparator()
+        Me.PremiumToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AProposToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -53,12 +59,6 @@ Partial Class Form1
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.ToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SiteWebToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MisesÀJoursToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem6 = New System.Windows.Forms.ToolStripSeparator()
-        Me.PremiumToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AProposToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -145,6 +145,42 @@ Partial Class Form1
         Me.ApplicationPersonnaliséeToolStripMenuItem.Name = "ApplicationPersonnaliséeToolStripMenuItem"
         Me.ApplicationPersonnaliséeToolStripMenuItem.Size = New System.Drawing.Size(210, 22)
         Me.ApplicationPersonnaliséeToolStripMenuItem.Text = "Application personnalisée"
+        '
+        'ToolStripMenuItem5
+        '
+        Me.ToolStripMenuItem5.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SiteWebToolStripMenuItem, Me.MisesÀJoursToolStripMenuItem, Me.ToolStripMenuItem6, Me.PremiumToolStripMenuItem, Me.AProposToolStripMenuItem})
+        Me.ToolStripMenuItem5.Name = "ToolStripMenuItem5"
+        Me.ToolStripMenuItem5.Size = New System.Drawing.Size(24, 20)
+        Me.ToolStripMenuItem5.Text = "&?"
+        '
+        'SiteWebToolStripMenuItem
+        '
+        Me.SiteWebToolStripMenuItem.Name = "SiteWebToolStripMenuItem"
+        Me.SiteWebToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SiteWebToolStripMenuItem.Text = "&Site web"
+        '
+        'MisesÀJoursToolStripMenuItem
+        '
+        Me.MisesÀJoursToolStripMenuItem.Name = "MisesÀJoursToolStripMenuItem"
+        Me.MisesÀJoursToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.MisesÀJoursToolStripMenuItem.Text = "&Mises à jours"
+        '
+        'ToolStripMenuItem6
+        '
+        Me.ToolStripMenuItem6.Name = "ToolStripMenuItem6"
+        Me.ToolStripMenuItem6.Size = New System.Drawing.Size(177, 6)
+        '
+        'PremiumToolStripMenuItem
+        '
+        Me.PremiumToolStripMenuItem.Name = "PremiumToolStripMenuItem"
+        Me.PremiumToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.PremiumToolStripMenuItem.Text = "&Soutenir"
+        '
+        'AProposToolStripMenuItem
+        '
+        Me.AProposToolStripMenuItem.Name = "AProposToolStripMenuItem"
+        Me.AProposToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.AProposToolStripMenuItem.Text = "&A propos..."
         '
         'Label1
         '
@@ -287,42 +323,6 @@ Partial Class Form1
         '
         'Timer1
         '
-        '
-        'ToolStripMenuItem5
-        '
-        Me.ToolStripMenuItem5.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SiteWebToolStripMenuItem, Me.MisesÀJoursToolStripMenuItem, Me.ToolStripMenuItem6, Me.PremiumToolStripMenuItem, Me.AProposToolStripMenuItem})
-        Me.ToolStripMenuItem5.Name = "ToolStripMenuItem5"
-        Me.ToolStripMenuItem5.Size = New System.Drawing.Size(24, 20)
-        Me.ToolStripMenuItem5.Text = "&?"
-        '
-        'SiteWebToolStripMenuItem
-        '
-        Me.SiteWebToolStripMenuItem.Name = "SiteWebToolStripMenuItem"
-        Me.SiteWebToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.SiteWebToolStripMenuItem.Text = "&Site web"
-        '
-        'MisesÀJoursToolStripMenuItem
-        '
-        Me.MisesÀJoursToolStripMenuItem.Name = "MisesÀJoursToolStripMenuItem"
-        Me.MisesÀJoursToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.MisesÀJoursToolStripMenuItem.Text = "&Mises à jours"
-        '
-        'ToolStripMenuItem6
-        '
-        Me.ToolStripMenuItem6.Name = "ToolStripMenuItem6"
-        Me.ToolStripMenuItem6.Size = New System.Drawing.Size(177, 6)
-        '
-        'PremiumToolStripMenuItem
-        '
-        Me.PremiumToolStripMenuItem.Name = "PremiumToolStripMenuItem"
-        Me.PremiumToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.PremiumToolStripMenuItem.Text = "&Soutenir"
-        '
-        'AProposToolStripMenuItem
-        '
-        Me.AProposToolStripMenuItem.Name = "AProposToolStripMenuItem"
-        Me.AProposToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.AProposToolStripMenuItem.Text = "&A propos..."
         '
         'Form1
         '
