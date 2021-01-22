@@ -97,6 +97,7 @@
     <Compile Include="About.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ApplicationEvents.vb" />
     <Compile Include="CustomApp.Designer.vb">
       <DependentUpon>CustomApp.vb</DependentUpon>
     </Compile>

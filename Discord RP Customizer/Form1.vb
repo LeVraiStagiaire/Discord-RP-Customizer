@@ -5,13 +5,29 @@ Imports DiscordRPC
 Imports DiscordRPC.Message
 Imports Microsoft.WindowsAPICodePack
 Imports Microsoft.WindowsAPICodePack.Dialogs
+Imports Utils.Language
 
 Public Class Form1
 
     Dim WithEvents RP As New DiscordRpcClient("797585769027862548")
     Public Shared Tstamp As New Timestamps
     Public Shared imagekey As String
+    Public Shared saved As Boolean = True
+    Public Shared filename As String = Nothing
+    Dim WithEvents td As New TaskDialog With {
+        .Caption = res.GetString("NotSaved_Caption"),
+        .Icon = TaskDialogStandardIcon.Warning,
+        .InstructionText = res.GetString("NotSaved_InstructionText"),
+        .Text = res.GetString("NotSaved_Text")
+    }
+    Dim WithEvents savenexit As New TaskDialogButton("savenexit", res.GetString("SaveAndExit"))
+    Dim WithEvents dontsave As New TaskDialogButton("dontsave", res.GetString("DontSave"))
+    Dim WithEvents cancel As New TaskDialogButton("cancel", res.GetString("Cancel"))
+
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        td.Controls.Add(savenexit)
+        td.Controls.Add(dontsave)
+        td.Controls.Add(cancel)
         SetClient("797585769027862548")
     End Sub
 
@@ -41,11 +57,13 @@ Public Class Form1
     End Sub
 
     Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
-        Label4.Text = InputBox("Veuillez entrer un texte pour la première ligne : ", "Changer de texte", Label4.Text)
+        Label4.Text = InputBox(res.GetString("Line1Input"), res.GetString("ChangeText"), Label4.Text)
+        saved = False
     End Sub
 
     Private Sub Label5_Click(sender As Object, e As EventArgs) Handles Label5.Click
-        Label5.Text = InputBox("Veuillez entrer un texte pour la deuxième ligne : ", "Changer de texte", Label5.Text)
+        Label5.Text = InputBox(res.GetString("Line2Input"), res.GetString("ChangeText"), Label5.Text)
+        saved = False
     End Sub
 
     Private Sub Label6_Click(sender As Object, e As EventArgs) Handles Label6.Click
@@ -83,6 +101,10 @@ Public Class Form1
     End Sub
 
     Private Sub QuitterToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles QuitterToolStripMenuItem1.Click
+        If saved = False Then
+            td.Show()
+            Exit Sub
+        End If
         End
     End Sub
 
@@ -103,6 +125,10 @@ Public Class Form1
     End Sub
 
     Private Sub QuitterToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QuitterToolStripMenuItem.Click
+        If Not saved Then
+            td.Show()
+            Exit Sub
+        End If
         End
     End Sub
 
@@ -144,5 +170,22 @@ Public Class Form1
 
     Private Sub PremiumToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PremiumToolStripMenuItem.Click
         Process.Start("https://www.paypal.com/donate?hosted_button_id=ZXWXJHQFH25NQ")
+    End Sub
+
+    Private Sub NouveauToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NouveauToolStripMenuItem.Click
+
+    End Sub
+
+    Private Sub cancel_Click(sender As Object, e As EventArgs) Handles cancel.Click
+        td.Close()
+    End Sub
+
+    Private Sub dontsave_Click(sender As Object, e As EventArgs) Handles dontsave.Click
+        td.Close()
+        End
+    End Sub
+
+    Private Sub savenexit_Click(sender As Object, e As EventArgs) Handles savenexit.Click
+        Throw New NotImplementedException("Non-implémenté")
     End Sub
 End Class

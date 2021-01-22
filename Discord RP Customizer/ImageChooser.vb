@@ -18,4 +18,8 @@
         Form1.imagekey = InputBox("Entrez la clé (key) de l'image : ", "Image personnalisée")
         Close()
     End Sub
+
+    Private Sub ImageChooser_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class
