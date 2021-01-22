@@ -53,6 +53,9 @@ Partial Class Form1
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.ToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SiteWebToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MisesÀJoursToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -62,7 +65,7 @@ Partial Class Form1
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FichierToolStripMenuItem, Me.RichPresenceToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FichierToolStripMenuItem, Me.RichPresenceToolStripMenuItem, Me.ToolStripMenuItem5})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(444, 24)
@@ -282,6 +285,25 @@ Partial Class Form1
         'Timer1
         '
         '
+        'ToolStripMenuItem5
+        '
+        Me.ToolStripMenuItem5.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SiteWebToolStripMenuItem, Me.MisesÀJoursToolStripMenuItem})
+        Me.ToolStripMenuItem5.Name = "ToolStripMenuItem5"
+        Me.ToolStripMenuItem5.Size = New System.Drawing.Size(24, 20)
+        Me.ToolStripMenuItem5.Text = "&?"
+        '
+        'SiteWebToolStripMenuItem
+        '
+        Me.SiteWebToolStripMenuItem.Name = "SiteWebToolStripMenuItem"
+        Me.SiteWebToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SiteWebToolStripMenuItem.Text = "&Site web"
+        '
+        'MisesÀJoursToolStripMenuItem
+        '
+        Me.MisesÀJoursToolStripMenuItem.Name = "MisesÀJoursToolStripMenuItem"
+        Me.MisesÀJoursToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.MisesÀJoursToolStripMenuItem.Text = "&Mises à jours"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -344,4 +366,7 @@ Partial Class Form1
     Friend WithEvents ToolStripMenuItem4 As ToolStripSeparator
     Friend WithEvents QuitterToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents ToolStripMenuItem5 As ToolStripMenuItem
+    Friend WithEvents SiteWebToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents MisesÀJoursToolStripMenuItem As ToolStripMenuItem
 End Class

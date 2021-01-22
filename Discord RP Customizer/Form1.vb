@@ -109,7 +109,14 @@ Public Class Form1
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         If RP.IsInitialized Then
             Threading.Thread.Sleep(1000)
-            Label1.Text = RP.CurrentUser.Username.ToString() + "#" + RP.CurrentUser.Discriminator.ToString()
+            For i = 0 To 10
+                If IsNothing(RP.CurrentUser.Username.ToString()) Then
+                    Threading.Thread.Sleep(500)
+                Else
+                    Label1.Text = RP.CurrentUser.Username.ToString() + "#" + RP.CurrentUser.Discriminator.ToString()
+                    Exit For
+                End If
+            Next
             Dim fnt As New Font("Whitney Medium", 10, FontStyle.Regular)
             Dim fnt2 As New Font("Whitney Medium", 10, FontStyle.Bold)
             Label1.Font = fnt2
@@ -121,5 +128,13 @@ Public Class Form1
             Button1.Font = fnt2
             Timer1.Stop()
         End If
+    End Sub
+
+    Private Sub SiteWebToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SiteWebToolStripMenuItem.Click
+        Process.Start("http://aorracer.com/2Aa4")
+    End Sub
+
+    Private Sub MisesÀJoursToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MisesÀJoursToolStripMenuItem.Click
+        Process.Start("http://aorracer.com/2Ao6")
     End Sub
 End Class
