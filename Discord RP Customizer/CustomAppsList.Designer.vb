@@ -1,4 +1,6 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿Imports Utils.Language
+
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class CustomAppsList
     Inherits System.Windows.Forms.Form
 
@@ -71,7 +73,7 @@ Partial Class CustomAppsList
         '
         'ColumnHeader1
         '
-        Me.ColumnHeader1.Text = "Nom"
+        Me.ColumnHeader1.Text = res.GetString("Name")
         Me.ColumnHeader1.Width = 277
         '
         'FlowLayoutPanel1
@@ -97,7 +99,7 @@ Partial Class CustomAppsList
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(105, 23)
         Me.Button1.TabIndex = 0
-        Me.Button1.Text = "&Choisir"
+        Me.Button1.Text = res.GetString("Choose")
         Me.Button1.UseVisualStyleBackColor = False
         '
         'Button2
@@ -110,7 +112,7 @@ Partial Class CustomAppsList
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(105, 23)
         Me.Button2.TabIndex = 1
-        Me.Button2.Text = "&Annuler"
+        Me.Button2.Text = res.GetString("Cancel")
         Me.Button2.UseVisualStyleBackColor = True
         '
         'Button3
@@ -122,7 +124,7 @@ Partial Class CustomAppsList
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(105, 23)
         Me.Button3.TabIndex = 2
-        Me.Button3.Text = "&Ajouter"
+        Me.Button3.Text = res.GetString("Add")
         Me.Button3.UseVisualStyleBackColor = True
         '
         'Button4
@@ -135,7 +137,7 @@ Partial Class CustomAppsList
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(105, 23)
         Me.Button4.TabIndex = 3
-        Me.Button4.Text = "&Supprimer"
+        Me.Button4.Text = res.GetString("Delete")
         Me.Button4.UseVisualStyleBackColor = False
         '
         'CustomAppsList

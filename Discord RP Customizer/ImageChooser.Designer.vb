@@ -1,4 +1,6 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿Imports Utils.Language
+
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class ImageChooser
     Inherits System.Windows.Forms.Form
 
@@ -23,7 +25,7 @@ Partial Class ImageChooser
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ListViewItem1 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("(vide)")
+        Dim ListViewItem1 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem(res.GetString("Empty"))
         Dim ListViewItem2 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Minecraft", "Minecraft")
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ImageChooser))
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
@@ -100,7 +102,7 @@ Partial Class ImageChooser
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 0
-        Me.Button1.Text = "&OK"
+        Me.Button1.Text = res.GetString("OK")
         Me.Button1.UseVisualStyleBackColor = False
         '
         'Button2
@@ -112,7 +114,7 @@ Partial Class ImageChooser
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
         Me.Button2.TabIndex = 1
-        Me.Button2.Text = "&Annuler"
+        Me.Button2.Text = res.GetString("Cancel")
         Me.Button2.UseVisualStyleBackColor = True
         '
         'Button3
@@ -124,7 +126,7 @@ Partial Class ImageChooser
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(124, 23)
         Me.Button3.TabIndex = 2
-        Me.Button3.Text = "Image personnalisée"
+        Me.Button3.Text = res.GetString("CustomPicture")
         Me.Button3.UseVisualStyleBackColor = True
         '
         'ImageChooser

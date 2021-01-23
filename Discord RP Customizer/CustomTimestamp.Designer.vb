@@ -1,4 +1,6 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿Imports Utils.Language
+
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class CustomTimestamp
     Inherits System.Windows.Forms.Form
 
@@ -66,7 +68,7 @@ Partial Class CustomTimestamp
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 2
-        Me.Button1.Text = "&OK"
+        Me.Button1.Text = res.GetString("OK")
         Me.Button1.UseVisualStyleBackColor = False
         '
         'Button2
@@ -79,7 +81,7 @@ Partial Class CustomTimestamp
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
         Me.Button2.TabIndex = 3
-        Me.Button2.Text = "&Annuler"
+        Me.Button2.Text = res.GetString("Cancel")
         Me.Button2.UseVisualStyleBackColor = False
         '
         'Button3
@@ -91,7 +93,7 @@ Partial Class CustomTimestamp
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(75, 23)
         Me.Button3.TabIndex = 4
-        Me.Button3.Text = "Maintenant"
+        Me.Button3.Text = res.GetString("Now")
         Me.Button3.UseVisualStyleBackColor = True
         '
         'CustomTimestamp

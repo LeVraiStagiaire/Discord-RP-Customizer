@@ -65,6 +65,24 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Recherche une chaîne localisée semblable à Accéder a l&apos;espace développeurs.
+        '''</summary>
+        Friend Shared ReadOnly Property AccessDeveloppersSpace() As String
+            Get
+                Return ResourceManager.GetString("AccessDeveloppersSpace", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Recherche une chaîne localisée semblable à Ajouter.
+        '''</summary>
+        Friend Shared ReadOnly Property Add() As String
+            Get
+                Return ResourceManager.GetString("Add", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Recherche une chaîne localisée semblable à Appliquer.
         '''</summary>
         Friend Shared ReadOnly Property Apply() As String
@@ -92,6 +110,77 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Recherche une chaîne localisée semblable à Choisir.
+        '''</summary>
+        Friend Shared ReadOnly Property Choose() As String
+            Get
+                Return ResourceManager.GetString("Choose", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Recherche une chaîne localisée semblable à Pour pouvoir utiliser une application personnalisée, vous devez d&apos;abord la créer dans l&apos;espace développeurs de Discord. Une application sert : 
+        '''    1. A être utilisée pour créer un Rich Presence dans votre jeu
+        '''    2. A créer un bot pour un serveur Discord.
+        '''
+        '''Pour y accéder, cliquez sur le bouton ci-dessous..
+        '''</summary>
+        Friend Shared ReadOnly Property CustomApp_Step1() As String
+            Get
+                Return ResourceManager.GetString("CustomApp_Step1", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Recherche une chaîne localisée semblable à 1. Créer l&apos;application.
+        '''</summary>
+        Friend Shared ReadOnly Property CustomApp_Step1Title() As String
+            Get
+                Return ResourceManager.GetString("CustomApp_Step1Title", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Recherche une chaîne localisée semblable à L&apos;ID client va servir à se connecter à l&apos;application afin de créer le Rich Presence. Avec une application personnalisée, vous pouvez : 
+        '''    1. Personnaliser le titre du Rich Presence
+        '''    2. Personnaliser les images disponibles pour le Rich Presence
+        '''
+        '''Veuillez copier et coller l&apos;ID client dans la zone de texte ci-dessous :.
+        '''</summary>
+        Friend Shared ReadOnly Property CustomApp_Step2() As String
+            Get
+                Return ResourceManager.GetString("CustomApp_Step2", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Recherche une chaîne localisée semblable à 2. Obtenir l&apos;ID client.
+        '''</summary>
+        Friend Shared ReadOnly Property CustomApp_Step2Title() As String
+            Get
+                Return ResourceManager.GetString("CustomApp_Step2Title", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Recherche une chaîne localisée semblable à Le logiciel est prêt à être utilisé avec l&apos;application personnalisée !.
+        '''</summary>
+        Friend Shared ReadOnly Property CustomApp_Step3() As String
+            Get
+                Return ResourceManager.GetString("CustomApp_Step3", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Recherche une chaîne localisée semblable à 3. Le logiciel est prêt !.
+        '''</summary>
+        Friend Shared ReadOnly Property CustomApp_Step3Title() As String
+            Get
+                Return ResourceManager.GetString("CustomApp_Step3Title", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Recherche une chaîne localisée semblable à Image personnalisée.
         '''</summary>
         Friend Shared ReadOnly Property CustomPicture() As String
@@ -106,6 +195,15 @@ Namespace My.Resources
         Friend Shared ReadOnly Property CustomPictureInput() As String
             Get
                 Return ResourceManager.GetString("CustomPictureInput", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Recherche une chaîne localisée semblable à Supprimer.
+        '''</summary>
+        Friend Shared ReadOnly Property Delete() As String
+            Get
+                Return ResourceManager.GetString("Delete", resourceCulture)
             End Get
         End Property
         
@@ -281,6 +379,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Recherche une chaîne localisée semblable à Nom.
+        '''</summary>
+        Friend Shared ReadOnly Property Name() As String
+            Get
+                Return ResourceManager.GetString("Name", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Recherche une chaîne localisée semblable à Vous avez du travail non-enregistré.
         '''</summary>
         Friend Shared ReadOnly Property NotSaved_Caption() As String
@@ -308,11 +415,29 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Recherche une chaîne localisée semblable à Maintenant.
+        '''</summary>
+        Friend Shared ReadOnly Property Now() As String
+            Get
+                Return ResourceManager.GetString("Now", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Recherche une chaîne localisée semblable à OK.
         '''</summary>
         Friend Shared ReadOnly Property OK() As String
             Get
                 Return ResourceManager.GetString("OK", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Recherche une chaîne localisée semblable à Coller.
+        '''</summary>
+        Friend Shared ReadOnly Property Past() As String
+            Get
+                Return ResourceManager.GetString("Past", resourceCulture)
             End Get
         End Property
         

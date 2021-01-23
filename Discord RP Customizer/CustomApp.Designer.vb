@@ -1,4 +1,6 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿Imports Utils.Language
+
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class CustomApp
     Inherits System.Windows.Forms.Form
 
@@ -45,7 +47,7 @@ Partial Class CustomApp
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(254, 29)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "1. Créer l'application"
+        Me.Label1.Text = res.GetString("CustomApp_Step1Title")
         '
         'Label2
         '
@@ -54,7 +56,7 @@ Partial Class CustomApp
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(426, 82)
         Me.Label2.TabIndex = 1
-        Me.Label2.Text = resources.GetString("Label2.Text")
+        Me.Label2.Text = res.GetString("CustomApp_Step1")
         '
         'Button1
         '
@@ -65,7 +67,7 @@ Partial Class CustomApp
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(173, 23)
         Me.Button1.TabIndex = 2
-        Me.Button1.Text = "Accéder a l'espace développeurs"
+        Me.Button1.Text = res.GetString("AccessDeveloppersSpace")
         Me.Button1.UseVisualStyleBackColor = True
         '
         'Label3
@@ -77,7 +79,7 @@ Partial Class CustomApp
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(242, 29)
         Me.Label3.TabIndex = 3
-        Me.Label3.Text = "2. Obtenir l'ID client"
+        Me.Label3.Text = res.GetString("CustomApp_Step2Title")
         '
         'Label4
         '
@@ -86,7 +88,7 @@ Partial Class CustomApp
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(426, 82)
         Me.Label4.TabIndex = 1
-        Me.Label4.Text = resources.GetString("Label4.Text")
+        Me.Label4.Text = res.GetString("CustomApp_Step2")
         '
         'TextBox1
         '
@@ -107,7 +109,7 @@ Partial Class CustomApp
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
         Me.Button2.TabIndex = 5
-        Me.Button2.Text = "Coller"
+        Me.Button2.Text = res.GetString("Past")
         Me.Button2.UseVisualStyleBackColor = True
         '
         'Label5
@@ -119,7 +121,7 @@ Partial Class CustomApp
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(272, 29)
         Me.Label5.TabIndex = 6
-        Me.Label5.Text = "3. Le logiciel est prêt !"
+        Me.Label5.Text = res.GetString("CustomApp_Step3Title")
         '
         'Label6
         '
@@ -128,7 +130,7 @@ Partial Class CustomApp
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(426, 19)
         Me.Label6.TabIndex = 1
-        Me.Label6.Text = "Le logiciel est prêt à être utilisé avec l'application personnalisée !" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.Label6.Text = res.GetString("CustomApp_Step3")
         '
         'Button3
         '
@@ -140,7 +142,7 @@ Partial Class CustomApp
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(75, 23)
         Me.Button3.TabIndex = 7
-        Me.Button3.Text = "&OK"
+        Me.Button3.Text = res.GetString("OK")
         Me.Button3.UseVisualStyleBackColor = False
         '
         'Button4
@@ -152,7 +154,7 @@ Partial Class CustomApp
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(75, 23)
         Me.Button4.TabIndex = 7
-        Me.Button4.Text = "&Annuler"
+        Me.Button4.Text = res.GetString("Cancel")
         Me.Button4.UseVisualStyleBackColor = True
         '
         'CustomApp
