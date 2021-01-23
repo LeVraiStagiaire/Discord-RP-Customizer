@@ -3,7 +3,7 @@ Imports System.Drawing.Drawing2D
 Imports System.Net
 Imports DiscordRPC
 Imports DiscordRPC.Message
-Imports Microsoft.WindowsAPICodePack
+Imports Microsoft.WindowsAPICodePack.Dialogs.Controls
 Imports Microsoft.WindowsAPICodePack.Dialogs
 Imports Utils.Language
 
@@ -23,11 +23,41 @@ Public Class Form1
     Dim WithEvents savenexit As New TaskDialogButton("savenexit", res.GetString("SaveAndExit"))
     Dim WithEvents dontsave As New TaskDialogButton("dontsave", res.GetString("DontSave"))
     Dim WithEvents cancel As New TaskDialogButton("cancel", res.GetString("Cancel"))
+    Dim WithEvents save As New CommonSaveFileDialog() With {
+        .Title = res.GetString("MNU_SaveAs"),
+        .OverwritePrompt = True,
+        .DefaultExtension = ".drp",
+        .EnsurePathExists = True
+    }
+    Dim WithEvents nameLabel As New CommonFileDialogLabel(res.GetString("Name"))
+    Dim WithEvents name1 As New CommonFileDialogTextBox
+    Dim WithEvents open As New CommonOpenFileDialog() With {
+        .EnsureFileExists = True,
+        .DefaultExtension = "drp",
+        .EnsureValidNames = True,
+        .Multiselect = False,
+        .Title = res.GetString("MNU_Open")
+    }
+    Dim WithEvents notsaved As New TaskDialog With {
+        .Caption = res.GetString("SaveAndContinue_Caption"),
+        .Icon = TaskDialogStandardIcon.Warning,
+        .InstructionText = res.GetString("SaveAndContinue_InstructionText"),
+        .Text = res.GetString("SaveAndContinue_Text")
+    }
+    Dim WithEvents savencontinue As New TaskDialogButton("savencontinue", res.GetString("SaveAndContinue"))
+    Dim WithEvents dontsave2 As New TaskDialogButton("dontsave", res.GetString("DontSave"))
+    Dim WithEvents cancel2 As New TaskDialogButton("cancel", res.GetString("Cancel"))
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         td.Controls.Add(savenexit)
         td.Controls.Add(dontsave)
         td.Controls.Add(cancel)
+        save.Controls.Add(nameLabel)
+        save.Controls.Add(name1)
+        notsaved.Controls.Add(savencontinue)
+        notsaved.Controls.Add(dontsave2)
+        notsaved.Controls.Add(cancel2)
+        save.Filters.Add(New CommonFileDialogFilter("Discord RP file", "*.drp"))
         SetClient("797585769027862548")
     End Sub
 
@@ -76,9 +106,9 @@ Public Class Form1
         rpcontent.State = Label5.Text
         rpcontent.Timestamps = Tstamp
         rpcontent.Assets = New Assets With {
-            .LargeImageKey = imagekey
+            .LargeImageKey = imagekey,
+            .LargeImageText = "Made with Discord RP Customizer - https://floyoutube54.github.io/Discord-RP-Customizer"
         }
-
         RP.SetPresence(rpcontent)
     End Sub
 
@@ -187,5 +217,75 @@ Public Class Form1
 
     Private Sub savenexit_Click(sender As Object, e As EventArgs) Handles savenexit.Click
         Throw New NotImplementedException("Non-implémenté")
+    End Sub
+
+    Private Sub EnregistrerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnregistrerToolStripMenuItem.Click
+        If filename = Nothing Then
+            save.ShowDialog()
+        Else
+            Utils.Saving.Save(save.FileName, New Utils.Collections.RPCollection With {
+                .ClientID = RP.ApplicationID,
+                .ImageKey = imagekey,
+                .Line1 = Label4.Text,
+                .Line2 = Label5.Text,
+                .Name = name1.Text,
+                .Timestamp = Tstamp
+            })
+            saved = True
+        End If
+    End Sub
+
+    Private Sub save_FileOk(sender As Object, e As CancelEventArgs) Handles save.FileOk
+        Utils.Saving.Save(save.FileName, New Utils.Collections.RPCollection With {
+            .ClientID = RP.ApplicationID,
+            .ImageKey = imagekey,
+            .Line1 = Label4.Text,
+            .Line2 = Label5.Text,
+            .Name = name1.Text,
+            .Timestamp = Tstamp
+        })
+        saved = True
+    End Sub
+
+    Private Sub EnregistrersousToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnregistrersousToolStripMenuItem.Click
+        save.ShowDialog()
+    End Sub
+
+    Private Sub OuvrirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OuvrirToolStripMenuItem.Click
+        If Not saved Then
+            notsaved.Show()
+        Else
+            open.ShowDialog()
+        End If
+    End Sub
+
+    Private Sub cancel2_Click(sender As Object, e As EventArgs) Handles cancel2.Click
+        notsaved.Close()
+    End Sub
+
+    Private Sub dontsave2_Click(sender As Object, e As EventArgs) Handles dontsave2.Click
+        open.ShowDialog()
+    End Sub
+
+    Private Sub savencontinue_Click(sender As Object, e As EventArgs) Handles savencontinue.Click
+        If saved Then
+            Utils.Saving.Save(save.FileName, New Utils.Collections.RPCollection With {
+                .ClientID = RP.ApplicationID,
+                .ImageKey = imagekey,
+                .Line1 = Label4.Text,
+                .Line2 = Label5.Text,
+                .Name = name1.Text,
+                .Timestamp = Tstamp
+            })
+            saved = True
+        Else
+            save.ShowDialog()
+        End If
+        open.ShowDialog()
+    End Sub
+
+    Private Sub open_FileOk(sender As Object, e As CancelEventArgs) Handles open.FileOk
+        Dim rp As Utils.Collections.RPCollection = Utils.Saving.Open(open.FileName)
+
     End Sub
 End Class

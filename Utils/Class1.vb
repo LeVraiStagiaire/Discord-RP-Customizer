@@ -1,4 +1,7 @@
 ﻿Imports System.Resources
+Imports Newtonsoft.Json
+Imports Utils.Collections
+Imports DiscordRPC
 
 Public Class Collections
 
@@ -6,6 +9,33 @@ Public Class Collections
         Public Property Name As String
         Public Property ID As String
     End Class
+
+    Class RPCollection
+        Public Property Name As String
+        Public Property ClientID As String
+        Public Property Line1 As String
+        Public Property Line2 As String
+        Public Property Timestamp As Timestamps
+        Public Property ImageKey As String
+    End Class
+
+End Class
+
+Public Class Saving
+
+    Public Shared Function Save(filename As String, rp As RPCollection)
+        Dim txt As String = JsonConvert.SerializeObject(rp)
+        If Not FileIO.FileSystem.FileExists(filename) Then
+            Dim file = System.IO.File.CreateText(filename)
+        End If
+        FileIO.FileSystem.WriteAllText(filename, txt, False)
+        Return True
+    End Function
+
+    Public Shared Function Open(filename As String) As RPCollection
+        Dim json As RPCollection = JsonConvert.DeserializeObject(Of RPCollection)(FileIO.FileSystem.ReadAllText(filename))
+        Return json
+    End Function
 
 End Class
 

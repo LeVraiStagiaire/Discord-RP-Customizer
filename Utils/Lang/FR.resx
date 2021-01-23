@@ -248,8 +248,20 @@ Veuillez copier et coller l'ID client dans la zone de texte ci-dessous :</value>
   <data name="Past" xml:space="preserve">
     <value>Coller</value>
   </data>
+  <data name="SaveAndContinue" xml:space="preserve">
+    <value>Enregistrer et continuer</value>
+  </data>
   <data name="SaveAndExit" xml:space="preserve">
     <value>Enregistrer et quitter</value>
+  </data>
+  <data name="SaveAndOpen_Caption" xml:space="preserve">
+    <value>Ouvrir un fichier</value>
+  </data>
+  <data name="SaveAndOpen_InstructionText" xml:space="preserve">
+    <value>Vous êtes sur le point d'ouvrir un autre fichier. Or celui-ci n'est pas enregistré. Souhaitez-vous l'enregistrer avant de continuer ?</value>
+  </data>
+  <data name="SaveAndOpen_Text" xml:space="preserve">
+    <value>Fichier non enregistré !</value>
   </data>
   <data name="SinceTimestamp" xml:space="preserve">
     <value>Depuis</value>

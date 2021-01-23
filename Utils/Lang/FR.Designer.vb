@@ -442,11 +442,47 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Recherche une chaîne localisée semblable à Enregistrer et continuer.
+        '''</summary>
+        Friend Shared ReadOnly Property SaveAndContinue() As String
+            Get
+                Return ResourceManager.GetString("SaveAndContinue", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Recherche une chaîne localisée semblable à Enregistrer et quitter.
         '''</summary>
         Friend Shared ReadOnly Property SaveAndExit() As String
             Get
                 Return ResourceManager.GetString("SaveAndExit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Recherche une chaîne localisée semblable à Ouvrir un fichier.
+        '''</summary>
+        Friend Shared ReadOnly Property SaveAndOpen_Caption() As String
+            Get
+                Return ResourceManager.GetString("SaveAndOpen_Caption", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Recherche une chaîne localisée semblable à Vous êtes sur le point d&apos;ouvrir un autre fichier. Or celui-ci n&apos;est pas enregistré. Souhaitez-vous l&apos;enregistrer avant de continuer ?.
+        '''</summary>
+        Friend Shared ReadOnly Property SaveAndOpen_InstructionText() As String
+            Get
+                Return ResourceManager.GetString("SaveAndOpen_InstructionText", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Recherche une chaîne localisée semblable à Fichier non enregistré !.
+        '''</summary>
+        Friend Shared ReadOnly Property SaveAndOpen_Text() As String
+            Get
+                Return ResourceManager.GetString("SaveAndOpen_Text", resourceCulture)
             End Get
         End Property
         
