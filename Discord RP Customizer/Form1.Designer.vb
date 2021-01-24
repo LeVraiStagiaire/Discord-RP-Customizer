@@ -19,7 +19,7 @@ Partial Class Form1
     'Requise par le Concepteur Windows Form
     Private components As System.ComponentModel.IContainer
 
-    'REMARQUE : la procédure suivante est requise par le Concepteur Windows Form
+    'REMARQUE : la procédure suivante est requise par le Concepteur Windows Form
     'Elle peut être modifiée à l'aide du Concepteur Windows Form.  
     'Ne la modifiez pas à l'aide de l'éditeur de code.
     <System.Diagnostics.DebuggerStepThrough()>
@@ -81,17 +81,20 @@ Partial Class Form1
         '
         Me.FichierToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NouveauToolStripMenuItem, Me.OuvrirToolStripMenuItem, Me.ToolStripMenuItem1, Me.EnregistrerToolStripMenuItem, Me.EnregistrersousToolStripMenuItem, Me.ToolStripMenuItem2, Me.QuitterToolStripMenuItem})
         Me.FichierToolStripMenuItem.Name = "FichierToolStripMenuItem"
-        Me.FichierToolStripMenuItem.Size = New System.Drawing.Size(12, 20)
+        Me.FichierToolStripMenuItem.Size = New System.Drawing.Size(54, 20)
+        Me.FichierToolStripMenuItem.Text = res.GetString("MNU_File")
         '
         'NouveauToolStripMenuItem
         '
         Me.NouveauToolStripMenuItem.Name = "NouveauToolStripMenuItem"
         Me.NouveauToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.NouveauToolStripMenuItem.Text = res.GetString("MNU_New")
         '
         'OuvrirToolStripMenuItem
         '
         Me.OuvrirToolStripMenuItem.Name = "OuvrirToolStripMenuItem"
         Me.OuvrirToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.OuvrirToolStripMenuItem.Text = res.GetString("MNU_Open")
         '
         'ToolStripMenuItem1
         '
@@ -102,11 +105,13 @@ Partial Class Form1
         '
         Me.EnregistrerToolStripMenuItem.Name = "EnregistrerToolStripMenuItem"
         Me.EnregistrerToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.EnregistrerToolStripMenuItem.Text = res.GetString("MNU_Save")
         '
         'EnregistrersousToolStripMenuItem
         '
         Me.EnregistrersousToolStripMenuItem.Name = "EnregistrersousToolStripMenuItem"
         Me.EnregistrersousToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.EnregistrersousToolStripMenuItem.Text = res.GetString("MNU_SaveAs")
         '
         'ToolStripMenuItem2
         '
@@ -117,27 +122,31 @@ Partial Class Form1
         '
         Me.QuitterToolStripMenuItem.Name = "QuitterToolStripMenuItem"
         Me.QuitterToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.QuitterToolStripMenuItem.Text = res.GetString("MNU_Exit")
         '
         'RichPresenceToolStripMenuItem
         '
         Me.RichPresenceToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EnleverToolStripMenuItem, Me.ToolStripMenuItem3, Me.ApplicationPersonnaliséeToolStripMenuItem})
         Me.RichPresenceToolStripMenuItem.Name = "RichPresenceToolStripMenuItem"
-        Me.RichPresenceToolStripMenuItem.Size = New System.Drawing.Size(12, 20)
+        Me.RichPresenceToolStripMenuItem.Size = New System.Drawing.Size(92, 20)
+        Me.RichPresenceToolStripMenuItem.Text = res.GetString("MNU_RP")
         '
         'EnleverToolStripMenuItem
         '
         Me.EnleverToolStripMenuItem.Name = "EnleverToolStripMenuItem"
-        Me.EnleverToolStripMenuItem.Size = New System.Drawing.Size(67, 22)
+        Me.EnleverToolStripMenuItem.Size = New System.Drawing.Size(210, 22)
+        Me.EnleverToolStripMenuItem.Text = res.GetString("MNU_Remove")
         '
         'ToolStripMenuItem3
         '
         Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
-        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(64, 6)
+        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(207, 6)
         '
         'ApplicationPersonnaliséeToolStripMenuItem
         '
         Me.ApplicationPersonnaliséeToolStripMenuItem.Name = "ApplicationPersonnaliséeToolStripMenuItem"
-        Me.ApplicationPersonnaliséeToolStripMenuItem.Size = New System.Drawing.Size(67, 22)
+        Me.ApplicationPersonnaliséeToolStripMenuItem.Size = New System.Drawing.Size(210, 22)
+        Me.ApplicationPersonnaliséeToolStripMenuItem.Text = res.GetString("MNU_CustomApps")
         '
         'ToolStripMenuItem5
         '
@@ -149,27 +158,31 @@ Partial Class Form1
         'SiteWebToolStripMenuItem
         '
         Me.SiteWebToolStripMenuItem.Name = "SiteWebToolStripMenuItem"
-        Me.SiteWebToolStripMenuItem.Size = New System.Drawing.Size(67, 22)
+        Me.SiteWebToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
+        Me.SiteWebToolStripMenuItem.Text = res.GetString("MNU_Website")
         '
         'MisesÀJoursToolStripMenuItem
         '
         Me.MisesÀJoursToolStripMenuItem.Name = "MisesÀJoursToolStripMenuItem"
-        Me.MisesÀJoursToolStripMenuItem.Size = New System.Drawing.Size(67, 22)
+        Me.MisesÀJoursToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
+        Me.MisesÀJoursToolStripMenuItem.Text = res.GetString("MNU_Updates")
         '
         'ToolStripMenuItem6
         '
         Me.ToolStripMenuItem6.Name = "ToolStripMenuItem6"
-        Me.ToolStripMenuItem6.Size = New System.Drawing.Size(64, 6)
+        Me.ToolStripMenuItem6.Size = New System.Drawing.Size(139, 6)
         '
         'PremiumToolStripMenuItem
         '
         Me.PremiumToolStripMenuItem.Name = "PremiumToolStripMenuItem"
-        Me.PremiumToolStripMenuItem.Size = New System.Drawing.Size(67, 22)
+        Me.PremiumToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
+        Me.PremiumToolStripMenuItem.Text = res.GetString("MNU_Donate")
         '
         'AProposToolStripMenuItem
         '
         Me.AProposToolStripMenuItem.Name = "AProposToolStripMenuItem"
-        Me.AProposToolStripMenuItem.Size = New System.Drawing.Size(67, 22)
+        Me.AProposToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
+        Me.AProposToolStripMenuItem.Text = res.GetString("MNU_About")
         '
         'Label1
         '
@@ -214,6 +227,7 @@ Partial Class Form1
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(163, 17)
         Me.Label4.TabIndex = 7
+        Me.Label4.Text = res.GetString("Line1")
         '
         'Label5
         '
@@ -223,6 +237,7 @@ Partial Class Form1
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(163, 17)
         Me.Label5.TabIndex = 7
+        Me.Label5.Text = res.GetString("Line2")
         '
         'Label6
         '
@@ -232,6 +247,7 @@ Partial Class Form1
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(163, 17)
         Me.Label6.TabIndex = 7
+        Me.Label6.Text = res.GetString("Since") & " 00:00"
         '
         'Button1
         '
@@ -243,6 +259,7 @@ Partial Class Form1
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(246, 28)
         Me.Button1.TabIndex = 8
+        Me.Button1.Text = res.GetString("Apply")
         Me.Button1.UseVisualStyleBackColor = False
         '
         'NotifyIcon1
@@ -273,6 +290,7 @@ Partial Class Form1
         '
         Me.QuitterToolStripMenuItem1.Name = "QuitterToolStripMenuItem1"
         Me.QuitterToolStripMenuItem1.Size = New System.Drawing.Size(141, 22)
+        Me.QuitterToolStripMenuItem1.Text = res.GetString("MNU_Exit")
         '
         'PictureBox3
         '
@@ -297,6 +315,7 @@ Partial Class Form1
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PictureBox1.Image = Global.Discord_RP_Customizer.My.Resources.Resources.Discord_RP_Template
         Me.PictureBox1.Location = New System.Drawing.Point(0, 24)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(444, 394)
@@ -327,7 +346,7 @@ Partial Class Form1
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.MaximizeBox = False
-        Me.name = "Form1"
+        Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Discord RP Customizer"
         Me.MenuStrip1.ResumeLayout(False)

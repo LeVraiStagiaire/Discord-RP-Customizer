@@ -15,7 +15,7 @@ Public Class Collections
         Public Property ClientID As String
         Public Property Line1 As String
         Public Property Line2 As String
-        Public Property Timestamp As Timestamps
+        Public Property StartTimestamp As Date?
         Public Property ImageKey As String
     End Class
 
@@ -24,9 +24,9 @@ End Class
 Public Class Saving
 
     Public Shared Function Save(filename As String, rp As RPCollection)
-        Dim txt As String = JsonConvert.SerializeObject(rp)
+        Dim txt As String = JsonConvert.SerializeObject(rp, Formatting.Indented)
         If Not FileIO.FileSystem.FileExists(filename) Then
-            Dim file = System.IO.File.CreateText(filename)
+            System.IO.File.CreateText(filename).Close()
         End If
         FileIO.FileSystem.WriteAllText(filename, txt, False)
         Return True

@@ -248,8 +248,20 @@ Please copy and paste the client ID in the text box below:</value>
   <data name="Past" xml:space="preserve">
     <value>Past</value>
   </data>
+  <data name="SaveAndContinue" xml:space="preserve">
+    <value>Save and continue</value>
+  </data>
   <data name="SaveAndExit" xml:space="preserve">
     <value>Save and exit</value>
+  </data>
+  <data name="SaveAndOpen_Caption" xml:space="preserve">
+    <value>Open a file</value>
+  </data>
+  <data name="SaveAndOpen_InstructionText" xml:space="preserve">
+    <value>You are about to open another file. However, it is not registered. Would you like to save it before you continue?</value>
+  </data>
+  <data name="SaveAndOpen_Text" xml:space="preserve">
+    <value>File unsaved</value>
   </data>
   <data name="SinceTimestamp" xml:space="preserve">
     <value>Since</value>

@@ -10,7 +10,9 @@ Imports Utils.Language
 Public Class Form1
 
     Dim WithEvents RP As New DiscordRpcClient("797585769027862548")
-    Public Shared Tstamp As New Timestamps
+    Public Shared Tstamp As New Timestamps With {
+        .Start = Now
+    }
     Public Shared imagekey As String
     Public Shared saved As Boolean = True
     Public Shared filename As String = Nothing
@@ -29,8 +31,8 @@ Public Class Form1
         .DefaultExtension = ".drp",
         .EnsurePathExists = True
     }
-    Dim WithEvents nameLabel As New CommonFileDialogLabel(res.GetString("Name"))
-    Dim WithEvents name1 As New CommonFileDialogTextBox
+    Dim WithEvents nameLabel As New CommonFileDialogLabel(res.GetString("Name") + " : ")
+    Dim WithEvents name1 As New CommonFileDialogTextBox("My RP")
     Dim WithEvents open As New CommonOpenFileDialog() With {
         .EnsureFileExists = True,
         .DefaultExtension = "drp",
@@ -45,8 +47,8 @@ Public Class Form1
         .Text = res.GetString("SaveAndContinue_Text")
     }
     Dim WithEvents savencontinue As New TaskDialogButton("savencontinue", res.GetString("SaveAndContinue"))
-    Dim WithEvents dontsave2 As New TaskDialogButton("dontsave", res.GetString("DontSave"))
-    Dim WithEvents cancel2 As New TaskDialogButton("cancel", res.GetString("Cancel"))
+    Dim WithEvents dontsave2 As New TaskDialogButton("dontsave1", res.GetString("DontSave"))
+    Dim WithEvents cancel2 As New TaskDialogButton("cancel1", res.GetString("Cancel"))
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         td.Controls.Add(savenexit)
@@ -58,6 +60,7 @@ Public Class Form1
         notsaved.Controls.Add(dontsave2)
         notsaved.Controls.Add(cancel2)
         save.Filters.Add(New CommonFileDialogFilter("Discord RP file", "*.drp"))
+        open.Filters.Add(New CommonFileDialogFilter("Discord RP file", "*.drp"))
         SetClient("797585769027862548")
     End Sub
 
@@ -82,7 +85,7 @@ Public Class Form1
         PictureBox2.Image = image2
     End Sub
 
-    Private Sub Form1_Shown(sender As Object, e As EventArgs) Handles Me.Shown
+    Private Sub Form1_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
 
     End Sub
 
@@ -138,7 +141,7 @@ Public Class Form1
         End
     End Sub
 
-    Private Sub Form1_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+    Private Sub Form1_Closing(sender As Object, e As CancelEventArgs) Handles MyBase.Closing
         Me.WindowState = FormWindowState.Minimized
         Me.Visible = False
         e.Cancel = True
@@ -150,7 +153,7 @@ Public Class Form1
         Me.Focus()
     End Sub
 
-    Private Sub EnleverLeRPToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnleverLeRPToolStripMenuItem.Click
+    Private Sub EnleverLeRPToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnleverToolStripMenuItem.Click
         RP.ClearPresence()
     End Sub
 
@@ -202,7 +205,7 @@ Public Class Form1
         Process.Start("https://www.paypal.com/donate?hosted_button_id=ZXWXJHQFH25NQ")
     End Sub
 
-    Private Sub NouveauToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NouveauToolStripMenuItem.Click
+    Private Sub NouveauToolStripMenuItem_Click(sender As Object, e As EventArgs)
 
     End Sub
 
@@ -221,41 +224,73 @@ Public Class Form1
 
     Private Sub EnregistrerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnregistrerToolStripMenuItem.Click
         If filename = Nothing Then
-            save.ShowDialog()
+            If save.ShowDialog() = CommonFileDialogResult.Ok Then
+                filename = save.FileAsShellObject.ParsingName
+                Utils.Saving.Save(save.FileAsShellObject.ParsingName, New Utils.Collections.RPCollection With {
+                    .ClientID = RP.ApplicationID,
+                    .ImageKey = imagekey,
+                    .Line1 = Label4.Text,
+                    .Line2 = Label5.Text,
+                    .Name = name1.Text,
+                    .StartTimestamp = Tstamp.Start
+                })
+                saved = True
+            End If
         Else
-            Utils.Saving.Save(save.FileName, New Utils.Collections.RPCollection With {
+            Utils.Saving.Save(filename, New Utils.Collections.RPCollection With {
                 .ClientID = RP.ApplicationID,
                 .ImageKey = imagekey,
                 .Line1 = Label4.Text,
                 .Line2 = Label5.Text,
                 .Name = name1.Text,
-                .Timestamp = Tstamp
+                .StartTimestamp = Tstamp.Start
             })
             saved = True
         End If
     End Sub
 
     Private Sub save_FileOk(sender As Object, e As CancelEventArgs) Handles save.FileOk
-        Utils.Saving.Save(save.FileName, New Utils.Collections.RPCollection With {
+        filename = save.FileName
+        Utils.Saving.Save(save.FileAsShellObject.ParsingName, New Utils.Collections.RPCollection With {
             .ClientID = RP.ApplicationID,
             .ImageKey = imagekey,
             .Line1 = Label4.Text,
             .Line2 = Label5.Text,
             .Name = name1.Text,
-            .Timestamp = Tstamp
+            .StartTimestamp = Tstamp.Start
         })
         saved = True
     End Sub
 
     Private Sub EnregistrersousToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnregistrersousToolStripMenuItem.Click
-        save.ShowDialog()
+        If save.ShowDialog() = CommonFileDialogResult.Ok Then
+            filename = save.FileAsShellObject.ParsingName
+            Utils.Saving.Save(save.FileAsShellObject.ParsingName, New Utils.Collections.RPCollection With {
+                    .ClientID = RP.ApplicationID,
+                    .ImageKey = imagekey,
+                    .Line1 = Label4.Text,
+                    .Line2 = Label5.Text,
+                    .Name = name1.Text,
+                    .StartTimestamp = Tstamp.Start
+                })
+            saved = True
+        End If
     End Sub
 
     Private Sub OuvrirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OuvrirToolStripMenuItem.Click
         If Not saved Then
             notsaved.Show()
         Else
-            open.ShowDialog()
+            If open.ShowDialog() = CommonFileDialogResult.Ok Then
+                filename = open.FileAsShellObject.ParsingName
+                Dim rp As Utils.Collections.RPCollection = Utils.Saving.Open(open.FileAsShellObject.ParsingName)
+                Tstamp.Start = rp.StartTimestamp
+                Label4.Text = rp.Line1
+                Label5.Text = rp.Line2
+                imagekey = rp.ImageKey
+                SetClient(rp.ClientID)
+                Text = "Discord RP Customizer - " + rp.Name
+            End If
         End If
     End Sub
 
@@ -264,28 +299,62 @@ Public Class Form1
     End Sub
 
     Private Sub dontsave2_Click(sender As Object, e As EventArgs) Handles dontsave2.Click
-        open.ShowDialog()
+        If open.ShowDialog() = CommonFileDialogResult.Ok Then
+            filename = open.FileAsShellObject.ParsingName
+            Dim rp As Utils.Collections.RPCollection = Utils.Saving.Open(open.FileAsShellObject.ParsingName)
+            Tstamp.Start = rp.StartTimestamp
+            Label4.Text = rp.Line1
+            Label5.Text = rp.Line2
+            imagekey = rp.ImageKey
+            SetClient(rp.ClientID)
+            Text = "Discord RP Customizer - " + rp.Name
+        End If
     End Sub
 
     Private Sub savencontinue_Click(sender As Object, e As EventArgs) Handles savencontinue.Click
         If saved Then
-            Utils.Saving.Save(save.FileName, New Utils.Collections.RPCollection With {
+            Utils.Saving.Save(filename, New Utils.Collections.RPCollection With {
                 .ClientID = RP.ApplicationID,
                 .ImageKey = imagekey,
                 .Line1 = Label4.Text,
                 .Line2 = Label5.Text,
                 .Name = name1.Text,
-                .Timestamp = Tstamp
+                .StartTimestamp = Tstamp.Start
             })
             saved = True
         Else
-            save.ShowDialog()
+            If save.ShowDialog() = CommonFileDialogResult.Ok Then
+                filename = save.FileAsShellObject.ParsingName
+                Utils.Saving.Save(save.FileAsShellObject.ParsingName, New Utils.Collections.RPCollection With {
+                    .ClientID = RP.ApplicationID,
+                    .ImageKey = imagekey,
+                    .Line1 = Label4.Text,
+                    .Line2 = Label5.Text,
+                    .Name = name1.Text,
+                    .StartTimestamp = Tstamp.Start
+                })
+                saved = True
+            End If
         End If
-        open.ShowDialog()
+        If open.ShowDialog() = CommonFileDialogResult.Ok Then
+            filename = open.FileAsShellObject.ParsingName
+            Dim rp As Utils.Collections.RPCollection = Utils.Saving.Open(open.FileAsShellObject.ParsingName)
+            Tstamp.Start = rp.StartTimestamp
+            Label4.Text = rp.Line1
+            Label5.Text = rp.Line2
+            imagekey = rp.ImageKey
+            SetClient(rp.ClientID)
+            Text = "Discord RP Customizer - " + rp.Name
+        End If
     End Sub
 
     Private Sub open_FileOk(sender As Object, e As CancelEventArgs) Handles open.FileOk
         Dim rp As Utils.Collections.RPCollection = Utils.Saving.Open(open.FileName)
-
+        Tstamp.Start = rp.StartTimestamp
+        Label4.Text = rp.Line1
+        Label5.Text = rp.Line2
+        imagekey = rp.ImageKey
+        SetClient(rp.ClientID)
+        Text = "Discord RP Customizer - " + rp.Name
     End Sub
 End Class
